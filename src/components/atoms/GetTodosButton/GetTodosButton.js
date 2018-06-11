@@ -22,7 +22,7 @@ const GetTodosButton = ({ onClick }) => (
 )
 
 GetTodosButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.object.isRequired,
 }
 
 export default GetTodosButton

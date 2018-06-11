@@ -5,8 +5,8 @@ import Title from './Title'
 const wrap = (props = {}) => shallow(<Title {...props} />)
 
 it('renders children when passed in', () => {
-  const wrapper = wrap({ children: 'test' })
-  expect(wrapper.contains('test')).toBe(true)
+  const wrapper = wrap('Redux Todo')
+  expect(wrapper.contains('Redux Todo')).toBe(true)
 })
 
 it('renders props when passed in', () => {

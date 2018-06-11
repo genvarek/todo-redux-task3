@@ -5,7 +5,7 @@ import TodoList from './TodoList'
 const wrap = (props = {}) => shallow(<TodoList {...props} />)
 
 it('renders children when passed in', () => {
-  const wrapper = wrap({ children: 'test' })
+  const wrapper = wrap({ })
   expect(wrapper.contains('test')).toBe(true)
 })
 
