@@ -11,11 +11,14 @@ describe('combineReducers test', () => {
 describe('todos reducer', () => {
   it('should return default', () => {
     expect(todos([{
+      id: 33,
       text: 'Run the default tests',
     }], {
       type: 'KEK_TODO',
-    })).toEqual([
-      { text: 'Run the default tests' },
+    })).toEqual([{
+      id: 33,
+      text: 'Run the default tests',
+    },
     ])
   })
 
@@ -29,14 +32,19 @@ describe('todos reducer', () => {
     })).toEqual({ todos: [{ id: 33, text: 'gdrgdhdr' }] })
   })
 
+
   it('should delete todos', () => {
-    expect(todos([{
-      text: 'Run the delete tests',
-      id: 1,
-    }], {
+    todos({ todos: [] }, {
+      type: 'ADD_TODO',
+      payload: {
+        id: 33,
+        text: 'gdrgdhdr',
+      },
+    })
+    expect(todos({ todos: [] }, {
       type: 'DELETE_TODO',
-      id: 1,
-    })).toEqual([])
+      id: 33,
+    })).toEqual({ todos: [] })
   })
 
   it('should fetch todos', () => {

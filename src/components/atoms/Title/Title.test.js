@@ -9,7 +9,8 @@ it('renders children when passed in', () => {
   expect(wrapper.contains('Redux Todo')).toBe(true)
 })
 
-it('renders props when passed in', () => {
-  const wrapper = wrap({ id: 'foo' })
-  expect(wrapper.find({ id: 'foo' })).toHaveLength(1)
+it('should render the text', () => {
+  const wrapper = wrap(<Title />)
+  expect(wrapper.find('h1')).toHaveLength(1)
 })
+

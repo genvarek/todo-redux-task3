@@ -1,8 +1,8 @@
 import React from 'react'
-import AddTodoContainer from '.../containers/AddTodoContainer'
-import VisibleTodoList from '.../containers/VisibleTodoList'
-import GetTodos from '.../containers/GetTodos'
-import Title from '../atoms/Title'
+import AddTodoContainer from '../../../containers/AddTodoContainer'
+import VisibleTodoList from '../../../containers/VisibleTodoList'
+import GetTodos from '../../../containers/GetTodos'
+import Title from '../../atoms/Title/Title'
 
 const App = () => (
   <div>

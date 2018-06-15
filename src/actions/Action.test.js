@@ -52,9 +52,9 @@ describe('async action creators', () => {
 
 
   it('addTodo async test', (done) => {
-    const id = Date.now()
+    const payload = undefined
     const text = 'kek'
-    const expectedActions = [{ type: 'ADD_TODO', id, text }]
+    const expectedActions = [{ type: 'ADD_TODO', payload }]
     const store = mockStore({ todos: [] })
 
     store.dispatch(addTodo(text))

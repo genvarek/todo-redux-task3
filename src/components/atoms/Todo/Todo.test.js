@@ -2,14 +2,23 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import Todo from './Todo'
 
-const wrap = (props = {}) => shallow(<Todo {...props} />)
+const props = {
+  onClick: jest.fn(),
+  text: 'kek',
+}
+const wrap = shallow(<Todo {...props} />)
 
-it('renders children when passed in', () => {
-  const wrapper = wrap({ children: 'test' })
-  expect(wrapper.contains('test')).toBe(true)
-})
+describe('test', () => {
+  it('renders children when passed in', () => {
+    wrap.find('button').simulate('click')
+    expect(props.onClick).toHaveBeenCalled()
+  })
 
-it('renders props when passed in', () => {
-  const wrapper = wrap({ id: 'foo' })
-  expect(wrapper.find({ id: 'foo' })).toHaveLength(1)
+  it('renders props when passed in', () => {
+    expect(wrap.contains('kek')).toEqual(true)
+  })
+
+  it('to match snapshot', () => {
+    expect(wrap).toMatchSnapshot()
+  })
 })

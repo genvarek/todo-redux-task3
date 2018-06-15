@@ -1,15 +1,16 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import AddTodo from './AddTodo'
 
-const wrap = (props = {}) => shallow(<AddTodo {...props} />)
+it('AddTodo', () => {
+  const props = {
+    onCreateTodo: jest.fn(),
+    addTodo: jest.fn(),
+  }
+  const wrapper = mount(<AddTodo {...props} />)
+  wrapper.find('input').instance().value = 'test'
 
-it('renders children when passed in', () => {
-  const wrapper = wrap({ children: 'test' })
-  expect(wrapper.contains('test')).toBe(true)
+  wrapper.find('form').simulate('submit')
+  expect(props.addTodo.mock.calls).toEqual([['test']])
 })
 
-it('renders props when passed in', () => {
-  const wrapper = wrap({ id: 'foo' })
-  expect(wrapper.find({ id: 'foo' })).toHaveLength(1)
-})
